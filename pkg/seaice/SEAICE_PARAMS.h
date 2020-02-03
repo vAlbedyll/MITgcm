@@ -303,6 +303,10 @@ C     HsaltFile         :: File containing initial sea ice salt content
 C     HeffFile          :: File containing initial sea-ice thickness
 C     uIceFile          :: File containing initial sea-ice U comp. velocity
 C     vIceFile          :: File containing initial sea-ice V comp. velocity
+C     AreaITDfile       :: File containing initial sea-ice concentration distribution
+C     HsnowITDfile      :: File containing initial snow thickness distribution
+C     HeffITDfile       :: File containing initial sea-ice thickness distribution
+
 C        !!! NOTE !!! Initial sea-ice thickness can also be set using
 C        SEAICE_initialHEFF below.  But a constant initial condition
 C        can mean large artificial fluxes of heat and freshwater in
@@ -314,9 +318,12 @@ C
       CHARACTER*(MAX_LEN_FNAM) HeffFile
       CHARACTER*(MAX_LEN_FNAM) uIceFile
       CHARACTER*(MAX_LEN_FNAM) vIceFile
+      CHARACTER*(MAX_LEN_FNAM) AreaITDfile
+      CHARACTER*(MAX_LEN_FNAM) HsnowITDfile
+      CHARACTER*(MAX_LEN_FNAM) HeffITDfile
       COMMON /SEAICE_PARM_C/
      &   AreaFile, HsnowFile, HsaltFile, HeffFile,
-     &   uIceFile, vIceFile
+     &   uIceFile, vIceFile,  AreaITDfile, HsnowITDfile, HeffITDfile
 
 C--   COMMON /SEAICE_PARM_RL/ Real valued parameters of sea ice model.
 C     SEAICE_deltaTtherm :: Seaice timestep for thermodynamic equations (s)

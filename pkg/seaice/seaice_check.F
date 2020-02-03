@@ -1059,6 +1059,14 @@ C
        CALL PRINT_ERROR( msgBuf, myThid )
        STOP 'ABNORMAL END: S/R SEAICE_CHECK'
       ENDIF
+#else
+      IF ( AreaITDfile .NE. ' ' .OR.
+     &     SnowITDfile .NE. ' ' .OR.
+     &     HeffITDfile .NE. ' '      ) THEN
+       WRITE(msgBuf,'(A)') 'SEAICE_CHECK: ITD initial file(s) given '//
+     & 'but SEAICE_ITD undefined'
+       CALL PRINT_ERROR( msgBuf, myThid )
+       STOP 'ABNORMAL END: S/R SEAICE_CHECK'
 #endif
 
       _END_MASTER(myThid)

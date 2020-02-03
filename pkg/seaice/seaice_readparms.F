@@ -160,6 +160,7 @@ C--   SEAICE parameters
      & SEAICE_mcPheeStepFunc, SEAICE_gamma_t, SEAICE_gamma_t_frz,
      & SEAICE_availHeatFrac, SEAICE_availHeatFracFrz, SEAICE_PDF,
      & AreaFile, HeffFile, uIceFile, vIceFile, HsnowFile, HsaltFile,
+     & AreaITDfile, HeffITDfile, HsnowITDfile,
      & SEAICEheatConsFix, SEAICE_multDim, SEAICE_useMultDimSnow,
      & SEAICE_deltaMin, SEAICE_area_reg, SEAICE_hice_reg,
      & SEAICE_area_floor, SEAICE_area_max, SEAICE_tauAreaObsRelax,
@@ -472,12 +473,15 @@ c     SEAICE_tempFrz0    = -1.96 _d 0
 c     SEAICE_dTempFrz_dS = 0. _d 0
       SEAICEstressFactor = 1.     _d 0
       SEAICE_tauAreaObsRelax = -999. _d 0
-      AreaFile   = ' '
-      HsnowFile  = ' '
-      HsaltFile  = ' '
-      HeffFile   = ' '
-      uIceFile   = ' '
-      vIceFile   = ' '
+      AreaFile     = ' '
+      HsnowFile    = ' '
+      HsaltFile    = ' '
+      HeffFile     = ' '
+      AreaITDfile  = ' '
+      HsnowITDfile = ' '
+      HeffITDfile  = ' '
+      uIceFile     = ' '
+      vIceFile     = ' '
       IMAX_TICE  = 10
       postSolvTempIter = 2
 C     LSR parameters

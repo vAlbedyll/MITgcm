@@ -6,9 +6,9 @@
  SEAICElinearIterMax= 1500,
  LSR_mixIniGuess    = 1,
  SEAICEadvScheme    = 77,
- AreaFile  = 'const100.bin',
- HeffFile  = 'heff_quartic.bin',
- HsnowFile = 'const_00.bin',
+ AreaITDfile  = 'areaitd.bin',
+ HeffITDfile  = 'heffitd_quartic.bin',
+ HsnowITDfile = 'snowitd.bin',
  SEAICEwriteState   = .TRUE.,
  SEAICE_monFreq = 1800.,
 # ridging

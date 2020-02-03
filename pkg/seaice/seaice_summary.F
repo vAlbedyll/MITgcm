@@ -646,6 +646,17 @@ C--  Initial Condition/Input related param.
      &  'HeffFile =', ' /* Initial effective ice thickness File */')
       CALL WRITE_0D_C( HsnowFile, -1, INDEX_NONE,
      &  'HsnowFile =', ' /* Initial snow thickness File */')
+#ifdef SEAICE_ITD
+      CALL WRITE_0D_C( AreaITDfile, -1, INDEX_NONE,
+     &  'AreaITDfile =',
+     &  ' /* Initial ice concentration distribution file */')
+      CALL WRITE_0D_C( HeffITDfile, -1, INDEX_NONE,
+     &  'HeffITDfile =',
+     &  ' /* Initial effective ice thickness distribution file */')
+      CALL WRITE_0D_C( HsnowITDfile, -1, INDEX_NONE,
+     &   'HsnowITDfile =',
+     &   ' /* Initial snow thickness distribution file */')
+#endif /* SEAICE_ITD */
 #ifdef SEAICE_VARIABLE_SALINITY
       CALL WRITE_0D_C( HsaltFile, -1, INDEX_NONE,
      &  'HsaltFile =', ' /* Initial HSALT File */')

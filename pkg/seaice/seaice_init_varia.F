@@ -385,10 +385,39 @@ C--   Read initial snow thickness from file if available.
            fw2ObyRidge(I,J,bi,bj) = 0. _d 0
           ENDDO
          ENDDO
+        ENDDO
+       ENDDO
+C--   Read initial sea ice itd from file if available.
+       IF ( AreaITDfile .NE. ' ' ) THEN
+        CALL READ_REC_3D_RL( AreaITDfile, readBinaryPrec,
+     &       nITD, AREAITD, 1, 0, myThid )
+        CALL EXCH_3D_RL( AREAITD,  nITD, myThid )
+       ENDIF
+       IF ( HsnowITDfile .NE. ' ' ) THEN
+        CALL READ_REC_3D_RL( HsnowITDfile, readBinaryPrec,
+     &       nITD,HSNOWITD, 1, 0, myThid )
+        CALL EXCH_3D_RL( HSNOWITD, nITD, myThid )
+       ENDIF
+       IF ( HeffITDfile .NE. ' ' ) THEN
+        CALL READ_REC_3D_RL( HeffITDfile, readBinaryPrec,
+     &       nITD, HEFFITD, 1, 0, myThid )
+        CALL EXCH_3D_RL( HEFFITD,  nITD, myThid )
+       ENDIF
+       DO bj=myByLo(myThid),myByHi(myThid)
+        DO bi=myBxLo(myThid),myBxHi(myThid)
+         IF ( AreaITDfile .NE. ' ' .OR. HsnowITDfile .NE. ' ' .OR.
+     &        HeffITDfile .NE. ' ' ) THEN
+          CALL SEAICE_ITD_SUM(bi, bj, baseTime, nIter0, myThid)
+          DO j=1-OLy,sNy+OLy
+           DO i=1-OLx,sNx+OLx
+            opnWtrFrac(I,J,bi,bj)  = 1. _d 0 - AREA(I,J,bi,bj)
+           ENDDO
+          ENDDO
+         ENDIF
          CALL SEAICE_ITD_REDIST(bi, bj, baseTime, nIter0, myThid)
         ENDDO
        ENDDO
-#endif
+#endif /* SEAICE_ITD */
 
 #ifdef SEAICE_VARIABLE_SALINITY
        DO bj=myByLo(myThid),myByHi(myThid)
